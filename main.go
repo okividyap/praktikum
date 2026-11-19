@@ -1,28 +1,49 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
 	// Kurs tetap mata uang terhadap Rupiah (IDR)
 	const (
-		kursUSD = 15800.0 // 1 USD = Rp 15.800
-		kursEUR = 17200.0 // 1 EUR = Rp 17.200
-		kursJPY = 105.0   // 1 JPY = Rp 105
-		kursMYR = 3550.0  // 1 MYR = Rp 3.550
+		kursUSD = 15800.0
+		kursEUR = 17200.0
+		kursJPY = 105.0
+		kursMYR = 3550.0
 	)
 
-	var rupiah float64
+	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Println("============================================")
 	fmt.Println("    PROGRAM KONVERSI MATA UANG SEDERHANA    ")
 	fmt.Println("============================================")
 
 	fmt.Print("Masukkan nominal uang dalam Rupiah (IDR): Rp ")
-	fmt.Scanln(&rupiah)
+	inputStr, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("[ERROR] Gagal membaca input.")
+		return
+	}
 
-	// Perhitungan konversi
+	inputStr = strings.TrimSpace(inputStr)
+	rupiah, err := strconv.ParseFloat(inputStr, 64)
+
+	// Validasi input: numerik dan harus > 0
+	if err != nil {
+		fmt.Println("\n[VALIDASI GAGAL] Input harus berupa angka numerik yang valid!")
+		return
+	}
+
+	if rupiah <= 0 {
+		fmt.Println("\n[VALIDASI GAGAL] Nominal uang harus lebih besar dari Rp 0!")
+		return
+	}
+
 	usd := rupiah / kursUSD
 	eur := rupiah / kursEUR
 	jpy := rupiah / kursJPY
