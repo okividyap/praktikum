@@ -1,0 +1,17 @@
+# File hasil kompilasi
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Binary output Go
+bin/
+praktikum-git
+
+# File Log
+*.log
+
+# File Environment
+.env
+.env.*
