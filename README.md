@@ -34,3 +34,9 @@ Teknologi yang Digunakan
 
 ---
 
+Cara Menjalankan Program
+
+Jalankan perintah berikut di terminal:
+
+bash
+go run main.go
