@@ -28,9 +28,9 @@ Fitur-Fitur Program
 ---
 
 Teknologi yang Digunakan
-- Bahasa Pemrograman**: Go (Golang)
-- Version Control System**: Git
-- Hosting Repository**: GitHub
+- Bahasa Pemrograman: Go (Golang)
+- Version Control System: Git
+- Hosting Repository: GitHub
 
 ---
 
